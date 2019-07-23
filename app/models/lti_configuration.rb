@@ -10,6 +10,8 @@ class LtiConfiguration < ApplicationRecord
     blackboard: "Blackboard",
     brightspace: "Brightspace",
     moodle: "Moodle",
+    sakai: "Sakai",
+    schoology: "Schoology",
     other: "other"
   }, _prefix: true
 
