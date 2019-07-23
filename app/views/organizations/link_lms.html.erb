@@ -1,0 +1,28 @@
+<div class="remodal-bg">
+  <%= render 'organizations/organization_banner', settings: true %>
+
+  <div class="site-content">
+    <div class="site-content-cap">
+      <h2 class="site-content-heading">Connect to a Learning Management System</h2>
+    </div>
+
+
+    <div class="site-content-body markdown-body">
+      <p>Would you like to connect GitHub Classroom to your Learning Management System (LMS)? You can always skip this step and come back later.</p>
+      <div class="d-flex flex-wrap gutter">
+        <% LtiConfiguration.lms_types.each_pair do |lms_type, lms_name| %>
+          <% lms_name = "Other LMS" if lms_type == "other" %>
+          <div class="col-6 col-md-4 col-lg-3">
+            <%= link_to info_lti_configuration_path(current_organization, lms_type: lms_type), method: :get, class: 'd-block width-full text-center hover-grow border rounded-2 box-shadow-medium bg-white p-3' do %>
+              <span class="css-truncate css-truncate-target" title=<%= lms_name %>><%= lms_name %></span>
+            <% end %>
+          </div>
+       <% end %>
+      </div>
+
+      <div class="form-actions">
+        <%= link_to "Skip", new_roster_path(current_organization), class: 'right', method: :get %>
+      </div>
+    </div>
+  </div>
+</div>
