@@ -10,6 +10,11 @@
     <div class="site-content-body markdown-body">
       <p>Would you like to connect GitHub Classroom to your Learning Management System (LMS)? You can always skip this step and come back later.</p>
       <div class="d-flex flex-wrap gutter">
+        <div class="col-6 col-md-4 col-lg-3">
+          <%= link_to select_google_classroom_roster_path(current_organization), method: :get, class: 'd-block width-full text-center hover-grow border rounded-2 box-shadow-medium bg-white p-3' do %>
+            <span class="css-truncate css-truncate-target" title="Google Classroom">Google Class</span>
+          <% end %>
+        </div>
         <% LtiConfiguration.lms_types.each_pair do |lms_type, lms_name| %>
           <% lms_name = "Other LMS" if lms_type == "other" %>
           <div class="col-6 col-md-4 col-lg-3">
